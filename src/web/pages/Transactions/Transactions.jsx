@@ -14,9 +14,9 @@ const Transactions = () =>{
 
   const transactionClicked = (row) => navigate(`/transactions/view/${row.id}`);
   if (isLoading) return <Loading isLoading={true} />;
+  
   return(
     <div className="transactions-view">
-      {/* <Loading isLoading={isLoading} /> */}
       <div className="table">
         <TableComponent
           data={transactions}

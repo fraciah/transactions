@@ -18,7 +18,6 @@ const TransactionsView = () =>{
   
   return(
     <div>
-      {/* <Loading isLoading={isLoading} /> */}
       <button onClick={() => navigate('/transactions')}>Back</button>
       <div className="transaction-view">
         <div className="card">
