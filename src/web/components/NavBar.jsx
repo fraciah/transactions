@@ -7,7 +7,7 @@ import AuthContext from "../../context/AuthProvider";
 import { LOGOUT } from "../../utils/apis";
 
 const NavBar = () =>{
-  const { token, setToken, setUser } = useContext(AuthContext);
+  const { token, setToken, setUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const logout =  async() => {
@@ -31,10 +31,19 @@ const NavBar = () =>{
     }
   }
   return(
-    <div>
-      NavBar
-       <button onClick={logout}>Logout</button>
-    </div>
+    <div className="navbar">
+      <div className="navbar-left">
+        <span className="app-name">Transactions App</span>
+        {user?.name && <span className="user-name">| {user.name}</span>}
+      </div>
+
+      <div className="navbar-right">
+        {user?.email && <span className="user-email">{user.email}</span>}
+        <button className="logout-btn" onClick={logout}>
+          Logout
+        </button>
+      </div>
+  </div>
   )
 }
 export default NavBar;

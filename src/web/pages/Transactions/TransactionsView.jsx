@@ -13,11 +13,12 @@ const TransactionsView = () =>{
     new Date(iso).toLocaleString("en-US", {
       dateStyle: "medium",
       timeStyle: "short",
-    });
+  });
+  if (isLoading) return <Loading isLoading={true} />;
   
   return(
     <div>
-      <Loading isLoading={isLoading} />
+      {/* <Loading isLoading={isLoading} /> */}
       <button onClick={() => navigate('/transactions')}>Back</button>
       <div className="transaction-view">
         <div className="card">

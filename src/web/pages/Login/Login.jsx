@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
+import { Banknote } from 'lucide-react';
 
 import { LOGIN } from "../../../utils/apis";
 import AuthContext from "../../../context/AuthProvider";
@@ -33,35 +34,38 @@ const Login = () =>{
 
   return(
     <div className="auth-container">
-      <div className="login-icon">icon</div>
-      <span className="title">Transactions App</span>
-      <span className="subtitle">Login to your account</span>
-
-      <form className="login-form" onSubmit={handleSubmit(handleLogin)}>
-        <span>Welcome back</span>
-        <span className="subtext">Enter your credentials to access your account</span>
-        {respError && <span className="error-msg">{respError}</span>}
-        <div className="auth-detail">
-          <label>Username</label>
-          <input
-            {...register("username", {required: "Username is required"})}
-            type="text"
-            placeholder="username"
-          />
+      <div className="login-box">
+        <div className="desc">
+          <Banknote/>
+          <span className="title">Transactions App</span>
+          <span className="subtitle">Login to your account</span>
         </div>
-        {errors.email && <span className="error-msg">{errors.email.message}</span>}
+        <form className="login-form" onSubmit={handleSubmit(handleLogin)}>
+          <span>Welcome back</span>
+          <span className="subtext">Enter your credentials to access your account</span>
+          {respError && <span className="error-msg">{respError}</span>}
+          <div className="auth-detail">
+            <label>Username</label>
+            <input
+              {...register("username", {required: "Username is required"})}
+              type="text"
+              placeholder="username"
+            />
+          </div>
+          {errors.email && <span className="error-msg">{errors.email.message}</span>}
 
-        <div className="auth-detail">
-          <label>Password</label>
-          <input
-            {...register("password", {required: "Password is required"})}
-            type="password"
-          />
+          <div className="auth-detail">
+            <label>Password</label>
+            <input
+              {...register("password", {required: "Password is required"})}
+              type="password"
+            />
+          </div>
+          {errors.password && <span className="error-msg">{errors.password.message}</span>}
+
+          <button className="btn">Login</button>
+        </form>
         </div>
-        {errors.password && <span className="error-msg">{errors.password.message}</span>}
-
-        <button>Login</button>
-      </form>
     </div>
   )
 }

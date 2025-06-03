@@ -13,15 +13,17 @@ const Transactions = () =>{
   const { data: transactions, isLoading } = RQTransactions(user.email);
 
   const transactionClicked = (row) => navigate(`/transactions/view/${row.id}`);
-
+  if (isLoading) return <Loading isLoading={true} />;
   return(
-    <div>
-      <Loading isLoading={isLoading} />
-      <TableComponent
-        data={transactions}
-        columns={columns}
-        onRowClicked={transactionClicked}
-      />
+    <div className="transactions-view">
+      {/* <Loading isLoading={isLoading} /> */}
+      <div className="table">
+        <TableComponent
+          data={transactions}
+          columns={columns}
+          onRowClicked={transactionClicked}
+        />
+      </div>
     </div>
   )
 }
