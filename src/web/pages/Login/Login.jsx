@@ -52,7 +52,7 @@ const Login = () =>{
               placeholder="username"
             />
           </div>
-          {errors.email && <span className="error-msg">{errors.email.message}</span>}
+          {errors.username && <span className="error-msg">{errors.username.message}</span>}
 
           <div className="auth-detail">
             <label>Password</label>

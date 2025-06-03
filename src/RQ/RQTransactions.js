@@ -6,7 +6,7 @@ import axios from "axios";
 import { TRANSACTIONS } from "../utils/apis";
 import AuthContext from "../context/AuthProvider";
 
-const RQTransactions = (email) => {
+const RQTransactions = () => {
   const { token} = useContext(AuthContext);
 
   const fetchTransactions = async () => {
@@ -22,7 +22,6 @@ const RQTransactions = (email) => {
   return useQuery({
     queryKey: ["transactions"],
     queryFn: fetchTransactions,
-    enabled: !!email,
     staleTime: 1000 * 60 * 10,
   })
 };
