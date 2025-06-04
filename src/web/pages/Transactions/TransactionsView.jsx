@@ -17,34 +17,59 @@ const TransactionsView = () =>{
   if (isLoading) return <Loading isLoading={true} />;
   
   return(
-    <div>
+    <div className="transaction-container">
       <button onClick={() => navigate('/transactions')}>Back</button>
-      <div className="transaction-view">
-        <div className="card">
-          <h2>Transaction Details</h2>
 
-          <div className="card-section">
-            <h3>Metadata</h3>
-            <p><strong>Transaction Time:</strong> {formatDate(transaction.transactionTime)}</p>
-            <p><strong>User ID:</strong> {transaction.userId}</p>
+      <div className="title-card">
+        <span className="page-title">Transaction Details</span>
+      </div>
+
+      <div className="card-grid">
+        <div className="page-card">
+          <div className="transaction-details">
+            <span className="title">Metadata</span>
+            <div className="row">
+              <span className="label">Time:</span>
+              <span className="value">{formatDate(transaction.transactionTime)}</span>
+            </div>
+            <div className="row">
+              <span className="label">User ID:</span>
+              <span className="value">{transaction.userId}</span>
+            </div>
           </div>
+        </div>
+      
 
-          <div className="card-section">
-            <h3>Transaction Info</h3>
-            <p><strong>Reference:</strong> {transaction.transactionRef}</p>
-            <p>
-              <strong>Status:</strong>{" "}
-              <span className={`status ${transaction.status}`}>{transaction.status}</span>
-            </p>
-            <p><strong>Narration:</strong> {transaction.narration}</p>
+        <div className="page-card">
+          <div className="transaction-details">
+            <span className="title">Transaction Info</span>
+            <div className="row">
+              <span className="label">Reference:</span>
+              <span className="value">{transaction.transactionRef}</span>
+            </div>
+            <div className="row">
+              <span className="label">Status:</span>
+              <span className="value">{transaction.status}</span>
+            </div>
+            <div className="row">
+              <span className="label">Narration:</span>
+              <span className="value">{transaction.narration}</span>
+            </div>
           </div>
+        </div>
 
-          <div className="card-section">
-            <h3>Account Info</h3>
-            <p><strong>Account Number:</strong> {transaction.accountNumber}</p>
-            <p><strong>Amount:</strong> {transaction.amount }</p>
+        <div className="page-card">
+          <div className="transaction-details">
+            <span className="title">Account Info</span>
+            <div className="row">
+              <span className="label">Account No:</span>
+              <span className="value">{transaction.accountNumber}</span>
+            </div>
+            <div className="row">
+              <span className="label">Amount:</span>
+              <span className="value">{transaction.amount }</span>
+            </div>
           </div>
-
         </div>
       </div>
     </div>

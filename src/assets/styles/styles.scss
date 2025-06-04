@@ -4,9 +4,11 @@ $primary-blue-hover-color: #106ba0;
 $white: rgb(255, 255, 255);
 $white-hover: #f0f0f0;
 $input-border-color: #ccc;
+$card-border-color: #ddd;
 
 body {
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 //login
@@ -139,8 +141,6 @@ button:hover {
   align-items: center;
   padding: 1rem 2rem;
   background-color: $white;
-  color: #000000; 
-  font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
@@ -205,4 +205,87 @@ button:hover {
 .transactions-view {
   height: 100vh;
   background-color: $auth-back;
+}
+
+
+.transaction-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  button {
+    background: $primary-blue-color;
+    color: $white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    align-self: start;
+    cursor: pointer;
+  }
+
+  .title-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+
+    .page-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $primary-blue-color;
+    }
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; 
+    margin-top: 1rem;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .page-card {
+    background: $white;
+    border: 1px solid $card-border-color;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box; 
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $primary-blue-color;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .transaction-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex-grow: 1;
+
+      .row {
+        display: flex;
+        gap: 1rem;
+    
+        .label {
+          width: 100px; 
+          font-weight: 600;
+        }
+    
+        .value {
+          flex: 1;
+          word-break: break-word;
+        }
+      }
+    }
+  }
 }
